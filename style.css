@@ -1,0 +1,102 @@
+
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+    background-color: #e3e5eb;
+    /* la altura minima q tenga el contenedor sera por lo menos el del viport */
+    min-height: 100vh;
+    /* centra y alinea al centro el contenedor */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor{
+
+    /* el ancho del contenedor sera el 90% y 10% de margen debido al centrado anterior */
+    width: 90%;
+    /* aunque el 90% sea mayor al 900px este solo crecera ese 900px */
+    max-width: 900px;
+}
+
+.contenedor-lista{
+    /* contenedor q tiene estos estilo para luego poner mas estilo arriba */
+    background-color: #f3f5f4;
+    box-shadow: 0px 0px 20px rgb(149 153 159/.16);
+    border-radius: 10px;
+}
+
+.contenedor-lista h1{
+    /* estilo q estan por encima del contenedo anterior y aplicado al h1 */
+    font-size: 20px;
+    background-color: white;
+    height: 100px;
+    /* solo para aliniarlo verticalmente */
+    display: flex;
+    align-items: center;
+    padding: 40px;
+    /* para acomodarlo con el anteior border radius */
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 0;
+}
+
+.lista{
+    /* contendor q centra mas el contenido  */
+    padding: 40px;
+    width: 100%;
+}
+
+.lista .persona{
+    background-color: white;
+
+    /* cada hijo de .persona se pone en columnas una a lado de la otra , auto? creo q es para q la foto se acomode, son todas iguales por lo tanto se alinea */
+    display: grid;
+    grid-template-columns: auto 1fr 1fr 1fr;
+    /* centrado vertical */
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+
+    /* box-shadow: 0px 0px 20px rgb(149 153 159/.5); */
+    cursor: move;
+
+}
+
+/* --------------aplicacion del efecto----------------- */
+.lista .persona.seleccionado{
+    transform: scale(1.02) rotate(-1deg);
+    box-shadow: 0px 0px 20px rgb(149 153 159 /.16);
+}
+
+/* .lista .persona.fantasma{
+    border: 10px dotted red;
+} */
+.lista .persona.drag{
+    background-color: rgb(0 0 0 /.5);
+}
+
+
+.lista .label {
+	text-transform: uppercase;
+	font-weight: 600;
+	margin-bottom: 5px;
+	color: #5173CF;
+}
+
+.lista .dato {
+	font-weight: bold;
+	font-size: 20px;
+}
+
+.lista .persona img {
+	width: 70px;
+	border-radius: 100%;
+	margin-right: 40px;
+}
